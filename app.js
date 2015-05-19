@@ -1,6 +1,5 @@
 var express = require('express');
 //require the Twilio module and create a REST client
-var client = require('twilio')('AC18f37a0f522bb8bab1d36ea30274ff5c', 'a6f6c14b6187220176d780b2a125de55');
 
 var app = express();
 // app.use(express.urlencoded());
