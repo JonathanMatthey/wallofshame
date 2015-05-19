@@ -7,6 +7,10 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 app.get('/send-message', function(req, res) {
+  res.header('Access-Control-Allow-Origin', 'example.com');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
   var numb = req.query.to;
   var msg = req.query.msg;
 
@@ -25,7 +29,7 @@ app.get('/send-message', function(req, res) {
 
       console.log(responseData.from); // outputs "+14506667788"
       console.log(responseData.body); // outputs "word to your mother."
-      res.json({"result":"success","body":{"from":responseData.from,"msg":responseData.body}});
+      res.json({"result":"success","body":{"from":responseData.from,"to":numb,"msg":responseData.body}});
 
     } else {
       console.log(err);
