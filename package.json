@@ -1,0 +1,16 @@
+{
+  "name": "wallofshame-nodejs",
+  "description": "a nodejs app to help wallofshame !",
+  "version": "1.0.1",
+  "private": false,
+  "author": "Jonathan Matthey <mattheyj@gmail.com> (http://jonathanmatthey.com)",
+  "engines": {
+    "node": "0.11.13"
+  },
+  "scripts": {},
+  "dependencies": {
+    "express": "^4.12.4",
+    "twilio": "^2.2.0"
+  },
+  "devDependencies": {}
+}
