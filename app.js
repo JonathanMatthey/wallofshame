@@ -12,27 +12,26 @@ app.get('/send-message', function(req, res) {
 
   console.log('sending msg to '+numb+ ' - ' + msg);
 
-  // //Send an SMS text message
-  // client.sendMessage({
+  //Send an SMS text message
+  client.sendMessage({
 
-  //   to: numb, // Any number Twilio can deliver to
-  //   from: '+12054028908', // A number you bought from Twilio and can use for outbound communication
-  //   body: msg // body of the SMS message
+    to: numb, // Any number Twilio can deliver to
+    from: '+12054028908', // A number you bought from Twilio and can use for outbound communication
+    body: msg // body of the SMS message
 
-  // }, function(err, responseData) { //this function is executed when a res is received from Twilio
+  }, function(err, responseData) { //this function is executed when a res is received from Twilio
 
-  //   if (!err) { // "err" is an error received during the request, if any
+    if (!err) { // "err" is an error received during the request, if any
 
-  //     console.log(responseData.from); // outputs "+14506667788"
-  //     console.log(responseData.body); // outputs "word to your mother."
+      console.log(responseData.from); // outputs "+14506667788"
+      console.log(responseData.body); // outputs "word to your mother."
+      res.json({"result":"success","body":{"from":responseData.from,"msg":responseData.body}});
 
-  //   } else {
-  //     console.log(err);
-        // res.json({"result":"err","error":err});
-  //   }
-  // });
-  //
-  res.sendStatus(200)
+    } else {
+      console.log(err);
+      res.json({"result":"err","error":err});
+    }
+  });
 
 });
 
