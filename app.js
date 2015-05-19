@@ -4,6 +4,7 @@ var client = require('twilio')('AC18f37a0f522bb8bab1d36ea30274ff5c', 'a6f6c14b61
 
 var app = express();
 // app.use(express.urlencoded());
+var port = process.env.PORT || 3000;
 
 app.get('/send-message', function(req, res) {
   var numb = req.query.to;
@@ -35,5 +36,9 @@ app.get('/send-message', function(req, res) {
 
 });
 
-app.listen(3000);
-console.log('Express app started on port ' + 3000);
+app.get('/', function(req, res) {
+  res.json("hi")
+});
+
+app.listen(port);
+console.log('Express app started on port ' + port);
